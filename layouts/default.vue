@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app style="background-color:#f0f0f0">
     <v-app-bar flat dense app dark color="#1565C0">
       <v-app-bar-nav-icon
         v-if="get_nav_items.length != 0"
@@ -66,7 +66,7 @@
       <Nuxt />
       <v-spacer></v-spacer>
     </v-main>
-    <v-footer app absolute dark padless color="#1565C0">
+    <v-footer app :absolute="Boolean(get_nav_items.length)" dark padless color="#1565C0">
       <v-col class="text-center pa-0" cols="12">
         {{ new Date().getFullYear() }} — <strong>Whiteboard</strong>
       </v-col>
@@ -102,4 +102,7 @@ export default {
 </script>
 
 <style scoped>
+::-webkit-scrollbar {
+  display:none;
+}
 </style>
