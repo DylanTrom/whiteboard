@@ -6,8 +6,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - poster-eval',
-    title: 'poster-eval',
+    titleTemplate: '%s - Whiteboard',
+    title: 'Whiteboard',
     htmlAttrs: {
       lang: 'en'
     },

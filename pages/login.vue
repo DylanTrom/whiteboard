@@ -7,8 +7,9 @@
     />
     <Loading :loading="loading" />
     <v-card-text class="pt-0 pl-0 pr-0">
-      Please enter the following information to login as an admin for the event:
+      Please enter the following information to login to Whiteboard:
     </v-card-text>
+
     <v-form @submit="submit_form" v-model="valid_login" ref="login">
       <v-text-field
         v-model="userInfo.email"
@@ -47,6 +48,14 @@
           </v-btn>
         </v-col>
       </v-row>
+            <v-row align="center" justify="center">
+                      <v-col align="center" justify="center">
+
+              <v-card-text>
+                Not registered? <a target="_self" href="/register" >Click here</a>
+              </v-card-text>
+                      </v-col>
+            </v-row>
     </v-form>
   </v-container>
 </template>
@@ -79,10 +88,17 @@ export default {
     Loading: Loading,
   },
   mounted() {
+    const nav_items = [
+      { name: "Home", to: "/", icon: "mdi-home" },
+    ];
+    const bottom_nav_items = [];
 
+    this.set_page_name("Login");
+    this.set_nav_items(nav_items);
+    this.set_bottom_nav_items(bottom_nav_items);
   },
   methods: {
-    ...mapMutations(['set_snackbar']),
+    ...mapMutations(['set_snackbar', 'set_nav_items', 'set_bottom_nav_items', 'set_page_name']),
     submit_form(event){
         event.preventDefault()
         if (this.$refs.login.validate()){
